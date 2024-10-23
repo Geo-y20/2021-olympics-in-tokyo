@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medal Prediction</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7f9fc;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 40px 60px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+        h1 {
+            color: #343a40;
+            margin-bottom: 30px;
+            font-size: 32px;
+            font-weight: bold;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        label {
+            margin-bottom: 12px;
+            font-weight: bold;
+            color: #495057;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 25px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            font-size: 16px;
+            color: #495057;
+        }
+        button {
+            padding: 12px 25px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            align-self: center;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 30px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #343a40;
+        }
+        .explanation {
+            margin-top: 40px;
+            text-align: left;
+            font-size: 16px;
+            color: #6c757d;
+        }
+        .explanation h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #343a40;
+            font-weight: bold;
+        }
+        .sample-inputs {
+            margin-top: 30px;
+            text-align: left;
+            font-size: 16px;
+            color: #495057;
+        }
+        .sample-inputs h3 {
+            margin-bottom: 15px;
+            font-size: 20px;
+            color: #343a40;
+            font-weight: bold;
+        }
+        .sample-inputs p {
+            margin: 8px 0;
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Predict the Olympic Medal Type</h1>
+        <form action="/predict" method="post">
+            <label for="Discipline">Discipline:</label>
+            <input type="text" id="Discipline" name="Discipline" placeholder="Enter Discipline ID" required>
+
+            <label for="Event">Event:</label>
+            <input type="text" id="Event" name="Event" placeholder="Enter Event ID" required>
+
+            <button type="submit">Predict</button>
+        </form>
+        <div class="result">{{ prediction_text }}</div>
+        <div class="explanation">
+            <h2>Goal of the Prediction</h2>
+            <p>The goal of this prediction tool is to estimate the type of Olympic medal (Bronze, Silver, or Gold) a team is most likely to win based on the discipline and specific event they participate in.</p>
+
+            <h2>How It Works</h2>
+            <p><strong>User Input:</strong> Users provide the Discipline and Event IDs in the form fields.</p>
+            <p><strong>Prediction:</strong> The Flask backend uses a trained Random Forest model to predict the type of medal (Bronze, Silver, or Gold) the team might win based on the provided input.</p>
+            <p><strong>Output:</strong> The predicted medal type is displayed on the same page below the form.</p>
+        </div>
+        <div class="sample-inputs">
+            <h3>Sample Inputs:</h3>
+            <p><strong>Example 1:</strong> Discipline: 1, Event: 100 (Athletics, 100m Sprint)</p>
+            <p><strong>Example 2:</strong> Discipline: 2, Event: 200 (Swimming, 200m Freestyle)</p>
+            <p><strong>Example 3:</strong> Discipline: 3, Event: 300 (Gymnastics, Floor Exercise)</p>
+            <p><strong>Example 4:</strong> Discipline: 4, Event: 400 (Basketball, Men's Tournament)</p>
+            <p><strong>Example 5:</strong> Discipline: 5, Event: 500 (Football, Women's Tournament)</p>
+            <p><strong>Example 6:</strong> Discipline: 6, Event: 600 (Boxing, Men's Lightweight)</p>
+            <p><strong>Example 7:</strong> Discipline: 7, Event: 700 (Weightlifting, Women's 69kg)</p>
+            <p><strong>Example 8:</strong> Discipline: 8, Event: 800 (Cycling, Men's Road Race)</p>
+        </div>
+    </div>
+</body>
+</html>
