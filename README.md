@@ -1,7 +1,7 @@
 
 # 2021 Olympics in Tokyo - Medal Prediction
 
-![Olympic Rings](https://upload.wikimedia.org/wikipedia/commons/5/55/Olympic_rings_without_rims.svg)
+![Olympic Rings](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQo95CICavoc3Zh2dIAFYuYRz8-0WgtbrSeIA&s)
 
 ## Overview
 
@@ -168,6 +168,35 @@ curl -X POST "http://localhost:8000/predict" -F 'discipline=1' -F 'event=100'
 - **Dataset**: [2021 Olympics in Tokyo - Kaggle](https://www.kaggle.com/datasets/arjunprasadsarkhel/2021-olympics-in-tokyo)
 - **FastAPI Documentation**: [FastAPI Official Docs](https://fastapi.tiangolo.com/)
 - **Docker Documentation**: [Docker Official Docs](https://docs.docker.com/)
+
+---
+Here’s a note you can add to the repository to clarify the two versions of `app.py` and the transition from Flask to FastAPI:
+
+---
+
+### Note on Application Versions
+
+In this repository, there are **two versions** of the application code, each using a different web framework. Initially, the project was implemented using **Flask**, but it was later migrated to **FastAPI** for better performance and flexibility.
+
+#### Version 1: `app.py` (Flask)
+
+- This version of the application was the original implementation using Flask.
+- The application worked correctly but lacked some of the performance benefits and modern features that **FastAPI** provides.
+- You can still find the `app.py` file in the repository, which contains the Flask version of the app.
+
+#### Version 2: `appf.py` (FastAPI)
+
+- This is the **current and actively used version** of the application, rewritten using **FastAPI**.
+- FastAPI offers better performance, asynchronous support, and is more scalable, which is why we transitioned to using it.
+- The `appf.py` file contains the FastAPI version of the application, which is now the main file for running the project.
+
+#### Documentation
+
+- The **README.md** file in this repository has been updated to reflect the usage of **FastAPI**.
+- If you're using this repository, please follow the setup instructions provided in the README to use the FastAPI version (`appf.py`).
+- The Dockerfile and environment settings have been configured for FastAPI as well.
+
+If you need to switch back to the **Flask** version, simply refer to the `app.py` file and modify the Dockerfile or startup command accordingly.
 
 ---
 
