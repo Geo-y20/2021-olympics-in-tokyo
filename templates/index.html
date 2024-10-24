@@ -40,7 +40,7 @@
             font-weight: bold;
             color: #495057;
         }
-        input[type="text"] {
+        input[type="number"] {
             width: 100%;
             padding: 12px;
             margin-bottom: 25px;
@@ -105,11 +105,11 @@
     <div class="container">
         <h1>Predict the Olympic Medal Type</h1>
         <form action="/predict" method="post">
-            <label for="Discipline">Discipline:</label>
-            <input type="text" id="Discipline" name="Discipline" placeholder="Enter Discipline ID" required>
+            <label for="discipline">Discipline:</label>
+            <input type="number" id="discipline" name="discipline" placeholder="Enter Discipline ID (e.g., 1 for Athletics)" required>
 
-            <label for="Event">Event:</label>
-            <input type="text" id="Event" name="Event" placeholder="Enter Event ID" required>
+            <label for="event">Event:</label>
+            <input type="number" id="event" name="event" placeholder="Enter Event ID (e.g., 100 for 100m Sprint)" required>
 
             <button type="submit">Predict</button>
         </form>
@@ -120,7 +120,7 @@
 
             <h2>How It Works</h2>
             <p><strong>User Input:</strong> Users provide the Discipline and Event IDs in the form fields.</p>
-            <p><strong>Prediction:</strong> The Flask backend uses a trained Random Forest model to predict the type of medal (Bronze, Silver, or Gold) the team might win based on the provided input.</p>
+            <p><strong>Prediction:</strong> The FastAPI backend uses a trained Random Forest model to predict the type of medal (Bronze, Silver, or Gold) the team might win based on the provided input.</p>
             <p><strong>Output:</strong> The predicted medal type is displayed on the same page below the form.</p>
         </div>
         <div class="sample-inputs">
@@ -128,11 +128,6 @@
             <p><strong>Example 1:</strong> Discipline: 1, Event: 100 (Athletics, 100m Sprint)</p>
             <p><strong>Example 2:</strong> Discipline: 2, Event: 200 (Swimming, 200m Freestyle)</p>
             <p><strong>Example 3:</strong> Discipline: 3, Event: 300 (Gymnastics, Floor Exercise)</p>
-            <p><strong>Example 4:</strong> Discipline: 4, Event: 400 (Basketball, Men's Tournament)</p>
-            <p><strong>Example 5:</strong> Discipline: 5, Event: 500 (Football, Women's Tournament)</p>
-            <p><strong>Example 6:</strong> Discipline: 6, Event: 600 (Boxing, Men's Lightweight)</p>
-            <p><strong>Example 7:</strong> Discipline: 7, Event: 700 (Weightlifting, Women's 69kg)</p>
-            <p><strong>Example 8:</strong> Discipline: 8, Event: 800 (Cycling, Men's Road Race)</p>
         </div>
     </div>
 </body>

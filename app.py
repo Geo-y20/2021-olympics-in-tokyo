@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify, render_template
 import pickle
 import numpy as np
 
-app = Flask(__name__)
+app = Flask(__name__)  # Use __name__ to initialize Flask
 
 # Load the saved Random Forest model
 with open('best_rf_model.pkl', 'rb') as file:
@@ -30,5 +30,5 @@ def predict():
     
     return render_template('index.html', prediction_text=f'The predicted medal type is: {predicted_medal}')
 
-if __name__ == "__main__":
+if __name__ == "__main__":  # Correct the main entry point check
     app.run(debug=True)

@@ -11,11 +11,8 @@ COPY . /app
 RUN pip install --upgrade pip
 RUN pip install --default-timeout=100 --no-cache-dir -r requirements.txt
 
-# Make port 5000 available to the world outside this container
-EXPOSE 5000
+# Make port 8000 available to the world outside this container
+EXPOSE 8000
 
-# Define environment variable
-ENV FLASK_APP=app.py
-
-# Run app.py when the container launches
-CMD ["flask", "run", "--host=0.0.0.0"]
+# Run appf.py using uvicorn when the container launches
+CMD ["uvicorn", "appf:app", "--host", "0.0.0.0", "--port", "8000"]
